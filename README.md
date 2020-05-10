@@ -25,7 +25,7 @@ follows:
     register 2 appears on the 7-segment display. If data in register 2 is “1010”, then the symbol ‘A’ appears on the
     7-segment display.
 
-
+![](diagram.png)
 
 # 3 Vivado Design Flow
 
