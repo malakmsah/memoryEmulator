@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="150001fs"></ZoomEndTime>
+      <Cursor1Time time="150000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="126"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject type="logic" fp_name="/top_tb/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/resetn">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/address">
+      <obj_property name="ElementShortName">address[2:0]</obj_property>
+      <obj_property name="ObjectShortName">address[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/Din">
+      <obj_property name="ElementShortName">Din[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Din[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/top_tb/wr_rd">
+      <obj_property name="ElementShortName">wr_rd</obj_property>
+      <obj_property name="ObjectShortName">wr_rd</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/top_tb/Dout">
+      <obj_property name="ElementShortName">Dout[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout[3:0]</obj_property>
+   </wvobject>
+</wave_config>

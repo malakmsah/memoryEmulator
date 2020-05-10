@@ -28,13 +28,8 @@ output reg [3:0] Q
 );
 
 always @(posedge clk or posedge clr)
-        if(clr == 1)
-            Q <= 4'b0000;
-        else
-            begin
-                if(E == 1)
-                   Q <= D;
-                else
-                   Q <= Q;
-            end
+    if(clr == 1)
+	   Q <= 4'b0000;
+	else if(E == 1)
+	   Q <= D;
 endmodule

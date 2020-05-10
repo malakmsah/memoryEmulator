@@ -22,40 +22,35 @@
 
 module top(
 input wire CLK,
-
-/**
-* Data in = SW[3:0]
-* Address = SW[6:4]
-* Enable = SW[7]
-**/
-input wire [6:0] SW,
+input wire [7:0] SW, // Data in = SW[3:0] , Address = SW[6:4] , wr_rd = SW[7]
 input wire BTNC,
 
-output wire [6:0] SEG ,
-output wire [3:0] AN ,
+output wire [3:0] LED,
+output CA,CB,CC,CD,CE,CF,CG,
+output wire [7:0] AN ,
 output wire DP  
 );
+ 
+wire [3:0] x;
 
-wire [15:0] RD;
-
-memory mem(
+memory mem1(
     .CLK(CLK),
-    .resetn(SW[7]),
+    .resetn(BTNC),
     .address(SW[6:4]),
     .wr_rd(SW[7]),
     .Din(SW[3:0]),
-    .Dout(RD[3:0])
+    .Dout(x[3:0])
 );
 
+assign LED = x[3:0];
+
+assign AN = 8'b11111110;	   // all digits on
+assign DP = 1; 		   // dp off
+
 // 7-segment
-assign RD[15:4]  = 12'b000000000000; 
-d7seg seg (
-    .x(RD),
-	.clk(CLK),
-	.clr(BTNC),
-	.a_to_g(SEG),
-	.an(AN),
-	.dp(DP)
+d7seg seg1 (
+    .x(x[3:0]),
+	.a_to_g({CA,CB,CC,CD,CE,CF,CG})
 ); 
 
 endmodule

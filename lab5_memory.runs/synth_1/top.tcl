@@ -17,9 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 2
-set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -35,6 +35,7 @@ read_verilog -library xil_defaultlib {
   /home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/d7seg.v
   /home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/decoder3to8.v
   /home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/flipflop.v
+  /home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/memory.v
   /home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/mux8to1.v
   /home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/top.v
 }
@@ -46,8 +47,8 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/malak/lab5_memory/lab5_memory.srcs/constrs_1/imports/malak/NDDR4.xdc
-set_property used_in_implementation false [get_files /home/malak/lab5_memory/lab5_memory.srcs/constrs_1/imports/malak/NDDR4.xdc]
+read_xdc /home/malak/lab5_memory/lab5_memory.srcs/constrs_1/imports/Downloads/Nexys4DDR_MasterA.xdc
+set_property used_in_implementation false [get_files /home/malak/lab5_memory/lab5_memory.srcs/constrs_1/imports/Downloads/Nexys4DDR_MasterA.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
