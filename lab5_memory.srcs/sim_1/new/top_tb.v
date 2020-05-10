@@ -24,76 +24,131 @@ module top_tb();
     
     
 // declare variables
-reg clk;
-reg clr;
-reg [2:0] adrs;
-reg [3:0] din;
+reg CLK;
+reg resetn;
+reg [2:0] address;
+reg [3:0] Din;
 reg wr_rd;
+wire [3:0] Dout;
 
-reg trueR = 1;
-
-wire [3:0] dout;
-wire [7:0] decodedAddress;
-
-wire [3:0] Q_0;
-
-wire [3:0] Q_1;
-wire [3:0] Q_2;
-wire [3:0] Q_3;
-wire [3:0] Q_4;
-wire [3:0] Q_5;
-wire [3:0] Q_6;
-wire [3:0] Q_7;
-
-decoder3to8 d38_tb(.x(adrs), .E(wr_rd), .y(decodedAddress) );
-
-
-flipflop f0_tb(.clk(clk), .clr(clr), .D(din), .E(trueR), .Q(Q_0) );
-
-flipflop f1_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[1]), .Q(Q_1) );
-flipflop f2_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[2]), .Q(Q_2) );
-flipflop f3_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[3]), .Q(Q_3) );
-flipflop f4_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[4]), .Q(Q_4) );
-flipflop f5_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[5]), .Q(Q_5) );
-flipflop f6_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[6]), .Q(Q_6) );
-flipflop f7_tb(.clk(clk), .clr(clr), .D(din), .E(decodedAddress[7]), .Q(Q_7) );
+memory mem_tb(
+    .CLK(CLK),
+    .resetn(resetn),
+    .address(address),
+    .wr_rd(wr_rd),
+    .Din(Din),
+    .Dout(Dout)
+);
 
 initial
 begin
 
-clk = 0;
-clr = 0;
+CLK = 0;
+resetn = 0;
+
+// Writes
+wr_rd = 1;
 
 // 0
-din = 4'b1000; 
-adrs = 3'b000;
-wr_rd = 1;
+Din = 4'b1010; 
+address = 3'b000;
 #10
 
 // 1
 
-din = 4'b0001; 
-adrs = 3'b001;
-wr_rd = 1;
+Din = 4'b0101; 
+address = 3'b001;
 #10
 
 // 2
 
-din = 4'b0010; 
-adrs = 3'b010;
-wr_rd = 1;
+Din = 4'b1010; 
+address = 3'b010;
 #10
 
 // 3
 
-din = 4'b0011; 
-adrs = 3'b011;
-wr_rd = 1;
+Din = 4'b0101; 
+address = 3'b011;
+#10
+
+
+// 4
+Din = 4'b1010; 
+address = 3'b100;
+#10
+
+// 5
+
+Din = 4'b0101; 
+address = 3'b101;
+#10
+
+// 6
+
+Din = 4'b1010; 
+address = 3'b110;
+#10
+
+// 7
+
+Din = 4'b0101; 
+address = 3'b111;
+
+////////////////////////////
+// Reads
+wr_rd = 0;
+
+// 0
+Din = 4'b1010; 
+address = 3'b000;
+#10
+
+// 1
+
+Din = 4'b0101; 
+address = 3'b001;
+#10
+
+// 2
+
+Din = 4'b1010; 
+address = 3'b010;
+#10
+
+// 3
+
+Din = 4'b0101; 
+address = 3'b011;
+#10
+
+
+// 4
+Din = 4'b1010; 
+address = 3'b100;
+#10
+
+// 5
+
+Din = 4'b0101; 
+address = 3'b101;
+#10
+
+// 6
+
+Din = 4'b1010; 
+address = 3'b110;
+#10
+
+// 7
+
+Din = 4'b0101; 
+address = 3'b111;
 #10
 
 $finish;
 end
 
-always begin clk = #5 ~clk;
+always begin CLK = #5 ~CLK;
 end
 endmodule

@@ -39,13 +39,13 @@ output wire DP
 wire [15:0] RD;
 
 memory mem(
-.CLK(CLK),
-.resetn(SW[7]),
-.address(BTNC),
-.wr_rd(SW[7]),
-.Din(SW[3:0]),
-.Dout(RD[3:0])
-    );
+    .CLK(CLK),
+    .resetn(SW[7]),
+    .address(SW[6:4]),
+    .wr_rd(SW[7]),
+    .Din(SW[3:0]),
+    .Dout(RD[3:0])
+);
 
 // 7-segment
 assign RD[15:4]  = 12'b000000000000; 

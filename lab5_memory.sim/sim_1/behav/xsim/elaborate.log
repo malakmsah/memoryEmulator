@@ -10,6 +10,8 @@ Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.decoder3to8
 Compiling module xil_defaultlib.flipflop
+Compiling module xil_defaultlib.mux8to1
+Compiling module xil_defaultlib.memory
 Compiling module xil_defaultlib.top_tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot top_tb_behav

@@ -2,5 +2,9 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/home/malak/lab5_memory/lab5_memory
 INFO: [VRFC 10-311] analyzing module decoder3to8
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/flipflop.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module flipflop
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/malak/lab5_memory/lab5_memory.srcs/sources_1/new/mux8to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux8to1
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/malak/lab5_memory/lab5_memory.srcs/sim_1/new/top_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module top_tb
